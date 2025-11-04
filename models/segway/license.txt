@@ -1,0 +1,11 @@
+Model Information:
+* title:	Segway
+* source:	https://sketchfab.com/3d-models/segway-6a3f198f2cff464baf1e2f8dbf51d793
+* author:	JoshEdwards (https://sketchfab.com/JoshEdwards)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Segway" (https://sketchfab.com/3d-models/segway-6a3f198f2cff464baf1e2f8dbf51d793) by JoshEdwards (https://sketchfab.com/JoshEdwards) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

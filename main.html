@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+        <title>SegWay - Interface</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/import_styles.css">
+        <script type="importmap">
+            {
+                "imports": {
+                "three": "https://unpkg.com/three@0.180.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.180.0/examples/jsm/"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header class="panel">
+            <h1> Taller Electrónica - Interface Control </h1>
+        </header>
+        <div class="border">
+            <section class="dashboard">
+                <section class="colm uno">
+                    <div class="block">
+                        <h2>Dashboard Segway</h2>
+                        <div>Taller Electrónica - G2</div>
+                    </div>
+                    <div class="block act">
+                        <div>Actuadores</div>
+                        <div class="buttons">
+                            <div class="button">
+                                <div>Motor Left</div>
+                                <label class="switch">
+                                    <input type="checkbox" id="motorLeft">
+                                    <span class="slider"></span>
+                                </label>
+                                <div>
+                                    <div class="text_input">
+                                        PWM
+                                        <input type="number" id="PWMleft" value="0" min="0" max="255">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <div>Motor Right</div>
+                                <label class="switch">
+                                    <input type="checkbox" id="motorRight">
+                                    <span class="slider"></span>
+                                </label>
+                                <div>
+                                     <div class="text_input">
+                                        PWM
+                                        <input type="number" id="PWMright" value="0" min="0" max="255">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bttncenter">
+                            <input class="Test_run" type="button" value="Test" id="TestPWM_run" >
+                        </div>
+                    </div>
+                    <div class="block sens">
+                        <div>Position Sensor</div>
+                        <div class="velocities">
+                            <div class="counter">
+                                <div id="counter"> 0 </div>
+                                <div class="jt_right">Vx </div>
+                            </div>
+                            <div class="counter">
+                                <div id="counter"> 0 </div>
+                                <div class="jt_right">Vy </div>
+                            </div>
+                            <div class="counter">
+                                <div id="counter"> 0 </div>
+                                <div class="jt_right">Vz </div>
+                            </div>
+                        </div>
+
+                        <div class="velocities">
+                            <div class="counter">
+                                <div id="counter"> 0 </div>
+                                <div class="jt_right">Jw</div>
+                            </div>
+                            <div class="counter">
+                                <div id="counter"> 0 </div>
+                                <div class="jt_right">Pth</div>
+                            </div>
+                            <div class="counter">
+                                <div id="counter"> 0 </div>
+                                <div class="jt_right">Rll </div>
+                            </div>
+                        </div>
+                        <div class="distance_sensor">
+                            <div>
+                                Distance Sensor:
+                            </div>
+                            <div class="center">
+                                <div class="counter">
+                                    <div id="counter"> 0 </div>
+                                    <div class="jt_right">cm </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bttncenter">
+                            <input class="Test_run" type="button" value="Test" id="TestSensors_run" >
+                        </div>
+                    </div>
+                </section>
+                <section class="colm dos">
+                    <div class="block model" id="contenedor3d">
+                        <canvas id="bg"></canvas>
+                    </div>
+                    <div class="block terminal">
+                        <div class="terminal-header">
+                            <div class="left">[ SEGWAY DIAGNOSTIC TERMINAL ]</div>
+                            <div class="fill"></div>
+                            <div class="right">[ v3.2.1 ]</div>
+                        </div>
+                        <div class="terminal_h2">
+                            <div id="status">◉ ACTIVE</div>
+                            <div id="Date">Monday, Oct 13 2025 14:23:17</div>
+                            <div id="Runtime">Runtime: 00:45:32</div>
+                        </div>
+                        <div class="terminal_h2">
+                            <div id="status">Session: SEG-8F4A2C1B</div>
+                            <div id="Date">Baud: 115200</div>
+                            <div id="Runtime">Port: COM3</div>
+                        </div>
+                        <hr>
+                        <div class="terminal-body">
+                            <div class="serial-line">
+                                <p class="tag">[INIT] </p>
+                                <p class="msg">▸ System boot sequence initiated</p>
+                            </div>
+                            <div class="serial-line">
+                                <p class="tag">[INIT] </p>
+                                <p class="msg">▸ Motor drivers loaded successfully</p>
+                            </div>
+                            <div class="serial-line">
+                                <p class="tag">[SENS] </p>
+                                <p class="msg">▸ IMU calibration complete</p>
+                            </div>
+                            <div class="serial-line">
+                                <p class="tag">[CTRL] </p>
+                                <p class="msg">▸ Balance control activated</p>
+                            </div>
+                            <div class="serial-line">
+                                <p class="tag warn">[WARN] </p>
+                                <p class="msg">▸ Battery voltage: 25% remaining</p>
+                            </div>
+                            <div class="serial-line">
+                                <p class="tag exec">[EXEC] </p>
+                                <p class="msg">▸ setSpeed() executed → 15.0 km/h</p>
+                            </div>
+                            <div class="serial-line">
+                                <p class="tag error">[ERRO] </p>
+                                <p class="msg">▸ Gyroscope drift exceeds threshold</p>
+                            </div>
+                            <div class="serial-line">
+                                <p class="tag info">[INFO] </p>
+                                <p class="msg">▸ Emergency stop triggered by user</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="colm tres">
+                    <div class="border">
+                        PID PARAMETERS
+                    </div>
+                </section>
+            </section>
+        </div>
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script type="module" src="js/test.js"></script>
+    <script type="module" src="js/model.js"></script>
+</html>
