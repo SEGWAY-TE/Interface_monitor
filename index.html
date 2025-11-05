@@ -170,10 +170,54 @@
                     </div>
                 </section>
                 <section class="colm tres">
-                    <div class="border">
-                        PID PARAMETERS
+                    <div class="block pid">
+                        <div>PID PARAMETERS</div>
+                        <div class="row pid_container">
+                            <div class="pid_para">
+                                <div class="text_input spa_bet">KP <input type="number" id="kp" value="0"></div> 
+                                <div class="text_input spa_bet">KI <input type="number" id="ki" value="0"></div>
+                                <div class="text_input spa_bet">KD <input type="number" id="kd" value="0"></div>
+                            </div>
+                            <div class="other_para">
+                                <div class="text_input spa_bet">Kg <input type="number" id="kp" value="0"></div>
+                                <div class="text_input spa_bet">L <input type="number" id="ki" value="0"></div>
+                                <div class="text_input spa_bet">R <input type="number" id="kd" value="0"></div>
+                            </div>
+                            <div class="colm">
+                                <div class="bttncenter">
+                                    <input class="Test_run" type="button" value="Control" id="AutoControl_run">
+                                </div>
+                                <div class="bttncenter">
+                                    <input class="Test_run" type="button" value="Stop" id="LoadPID_run">
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="block ota">
+                        <div>OTA UPDATE</div>
+                        <input class="filebttn" type="file" value="Upload Firmware" id="otaUpload">
+                    </div>
+
+                    <div class="battery">
+                        <div class="block status_battery">
+                            <div>Battery Status</div>
+                            <div class="battery_percent">
+                                <div id="batteryPercent"> 0 % </div>
+                            </div>
+                            <div class="battery_autonomy">
+                                <div>Autonomy: <span id="autonomyEst">-- min</span></div>
+                            </div>
+                        </div>
+                        <div class="block runtime">
+                            <div>Remaining Time</div>
+                            <div class="runtime_counter">
+                                <div id="runtimeCounter">00:00:00</div>
+                            </div>
+                        </div>
+                    </div>
+
                 </section>
+
             </section>
         </div>
     </body>
