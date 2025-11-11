@@ -102,7 +102,7 @@
                             </div>
                             <div class="center">
                                 <div class="counter">
-                                    <div id="counter"> 0 </div>
+                                    <div id="countDistance"> 0 </div>
                                     <div class="jt_right">cm </div>
                                 </div>
                             </div>
@@ -128,44 +128,13 @@
                             <div id="Runtime">Runtime: 00:45:32</div>
                         </div>
                         <div class="terminal_h2">
-                            <div id="status">Session: SEG-8F4A2C1B</div>
-                            <div id="Date">Baud: 115200</div>
-                            <div id="Runtime">Port: COM3</div>
+                            <div id="serial">Session: SEG-8F4A2C1B</div>
+                            <div id="Baud">Baud: 115200</div>
+                            <div id="Port">Port: COM3</div>
                         </div>
                         <hr>
-                        <div class="terminal-body">
-                            <div class="serial-line">
-                                <p class="tag">[INIT] </p>
-                                <p class="msg">▸ System boot sequence initiated</p>
-                            </div>
-                            <div class="serial-line">
-                                <p class="tag">[INIT] </p>
-                                <p class="msg">▸ Motor drivers loaded successfully</p>
-                            </div>
-                            <div class="serial-line">
-                                <p class="tag">[SENS] </p>
-                                <p class="msg">▸ IMU calibration complete</p>
-                            </div>
-                            <div class="serial-line">
-                                <p class="tag">[CTRL] </p>
-                                <p class="msg">▸ Balance control activated</p>
-                            </div>
-                            <div class="serial-line">
-                                <p class="tag warn">[WARN] </p>
-                                <p class="msg">▸ Battery voltage: 25% remaining</p>
-                            </div>
-                            <div class="serial-line">
-                                <p class="tag exec">[EXEC] </p>
-                                <p class="msg">▸ setSpeed() executed → 15.0 km/h</p>
-                            </div>
-                            <div class="serial-line">
-                                <p class="tag error">[ERRO] </p>
-                                <p class="msg">▸ Gyroscope drift exceeds threshold</p>
-                            </div>
-                            <div class="serial-line">
-                                <p class="tag info">[INFO] </p>
-                                <p class="msg">▸ Emergency stop triggered by user</p>
-                            </div>
+                        <div id="terminal-body">
+                            <!--- Se general las lineas de consola de forma automática-->
                         </div>
                     </div>
                 </section>
@@ -223,6 +192,6 @@
     </body>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
-    <script type="module" src="js/test.js"></script>
+    <script type="module" src="js/database.js"></script>
     <script type="module" src="js/model.js"></script>
 </html>

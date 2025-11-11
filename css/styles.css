@@ -352,6 +352,7 @@ hr{
     width: 100%;
     display: flex;
     margin: 3px;
+    animation: fadeIn 0.5s ease;
 }
 .tag{
     flex: 0.12;
@@ -415,6 +416,9 @@ input::file-selector-button {
 .runtime{
     flex: 0.45;
     margin: 0px;
+}
+#status{
+    color: aqua;
 }
 @media (max-width: 768px) {
   h1{
