@@ -188,6 +188,75 @@ setInterval(updateRuntime, 1000);
 updateRuntime();
 
 
+// Remaning Time Update
+
+const runtimeCounter = document.getElementById("runtimeCounter");
+
+// Tiempo inicial en segundos (2 horas)
+let remainingTime = 2 * 60 * 60;
+
+// Función para convertir segundos → hh:mm:ss
+function formatTime(seconds) {
+  const hrs = String(Math.floor(seconds / 3600)).padStart(2, "0");
+  const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  return `${hrs}:${mins}:${secs}`;
+}
+
+// Mostrar tiempo inicial
+runtimeCounter.textContent = formatTime(remainingTime);
+
+// Actualizar cada 10 segundos
+const interval = setInterval(() => {
+  remainingTime -= 30;
+
+  if (remainingTime <= 0) {
+    remainingTime = 0;
+    clearInterval(interval);
+  }
+
+  runtimeCounter.textContent = formatTime(remainingTime);
+}, 2000);
+
+
+
+// Battery Level Update
+
+const batteryLevel = document.getElementById("batteryPercent");
+let percentLevel = 90;
+
+// Mostrar tiempo inicial
+batteryLevel.textContent = 90;
+
+// Actualizar cada 10 segundos
+const interval_batt = setInterval(() => {
+  percentLevel -= 1;
+
+  if (percentLevel <= 0) {
+    percentLevel = 0;
+    clearInterval(interval_batt);
+  }
+
+  batteryLevel.textContent = percentLevel;
+}, 2000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // --- Variables globales ---
 const terminalBody = document.getElementById("terminal-body");
