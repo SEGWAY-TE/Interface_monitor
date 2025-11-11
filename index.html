@@ -43,7 +43,7 @@
                                 <div>
                                     <div class="text_input">
                                         PWM
-                                        <input type="number" id="PWMleft" value="0" min="0" max="255">
+                                        <input type="number" id="PWMLeft" value="150" min="0" max="255">
                                     </div>
                                 </div>
                             </div>
@@ -56,43 +56,43 @@
                                 <div>
                                      <div class="text_input">
                                         PWM
-                                        <input type="number" id="PWMright" value="0" min="0" max="255">
+                                        <input type="number" id="PWMRight" value="150" min="0" max="255">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="bttncenter">
-                            <input class="Test_run" type="button" value="Test" id="TestPWM_run" >
+                            <input class="Test_run" type="button" value="Test" id="TestPWM" >
                         </div>
                     </div>
                     <div class="block sens">
                         <div>Position Sensor</div>
                         <div class="velocities">
                             <div class="counter">
-                                <div id="counter"> 0 </div>
+                                <div id="vx" class="counter_mpu"> 0 </div>
                                 <div class="jt_right">Vx </div>
                             </div>
                             <div class="counter">
-                                <div id="counter"> 0 </div>
+                                <div id="vy" class="counter_mpu"> 0 </div>
                                 <div class="jt_right">Vy </div>
                             </div>
                             <div class="counter">
-                                <div id="counter"> 0 </div>
+                                <div id="vz" class="counter_mpu"> 0 </div>
                                 <div class="jt_right">Vz </div>
                             </div>
                         </div>
 
                         <div class="velocities">
                             <div class="counter">
-                                <div id="counter"> 0 </div>
+                                <div id="jw" class="counter_mpu"> 0 </div>
                                 <div class="jt_right">Jw</div>
                             </div>
                             <div class="counter">
-                                <div id="counter"> 0 </div>
+                                <div id="pt" class="counter_mpu"> 0 </div>
                                 <div class="jt_right">Pth</div>
                             </div>
                             <div class="counter">
-                                <div id="counter"> 0 </div>
+                                <div id="rll" class="counter_mpu"> 0 </div>
                                 <div class="jt_right">Rll </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                         <div class="bttncenter">
-                            <input class="Test_run" type="button" value="Test" id="TestSensors_run" >
+                            <input class="Test_run" type="button" value="Test" id="TestSensors" >
                         </div>
                     </div>
                 </section>

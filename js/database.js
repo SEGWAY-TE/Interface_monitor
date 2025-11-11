@@ -27,6 +27,13 @@ let motorRight = document.getElementById('motorRight')
 let motorRightRef = ref(db, "motorRightBool/");
 let motorLeftRef = ref(db, "motorLeftBool/");
 
+
+let motorLeftPWM = document.getElementById('PWMLeft')
+let motorRightPWM = document.getElementById('PWMRight')
+
+let PWMRightRef = ref(db, "motorRightPWM/");
+let PWMLeftRef = ref(db, "motorLeftPWM/");
+
 // Referencia a la ruta del sensor de distancia
 const distanceSensor = ref(db, "distanceSensor/");
 
@@ -36,6 +43,16 @@ motorRight.addEventListener("change", () => {
 });
 motorLeft.addEventListener("change", () => {
     set(ref(db, 'motorLeftBool/'), motorLeft.checked)
+});
+
+motorLeftPWM.addEventListener("change", () => {
+  const pwmValue = Number(motorLeftPWM.value); // convierte el valor a número
+  set(PWMLeftRef, pwmValue); // guarda el nuevo valor en Firebase
+});
+
+motorRightPWM.addEventListener("change", () => {
+  const pwmValue = Number(motorRightPWM.value); // convierte el valor a número
+  set(PWMRightRef, pwmValue); // guarda el nuevo valor en Firebase
 });
 
 
@@ -54,6 +71,86 @@ onValue(motorRightRef, (snapshot) => {
   const data = snapshot.val();
   motorRight.checked = data == true;
 });
+
+onValue(PWMRightRef, (snapshot) => {
+  const data = snapshot.val();
+  motorRightPWM.value = Number(data);
+});
+
+onValue(PWMLeftRef, (snapshot) => {
+  const data = snapshot.val();
+  motorLeftPWM.value = Number(data);
+});
+
+// Cambiar Valores de Giroscopio
+
+let vx_indicator = document.getElementById('vx');
+let vy_indicator = document.getElementById('vy');
+let vz_indicator = document.getElementById('vz');
+
+let jw_indicator = document.getElementById('jw');
+let pt_indicator = document.getElementById('pt');
+let rll_indicator = document.getElementById('rll');
+
+let bttnPWM = document.getElementById('TestSensors');
+
+
+
+
+// Función para generar un número aleatorio entre -100 y 100
+function randomValue() {
+  return (Math.random() * 4 - 2).toFixed(2);
+}
+
+function formatValue(num) {
+  const sign = num < 0 ? "-" : "";
+  num = Math.abs(num).toFixed(2); // siempre 2 decimales
+  const [intPart, decPart] = num.split(".");
+  const paddedInt = intPart.padStart(2, "0"); // agrega ceros a la izquierda
+  return `${sign}${paddedInt}.${decPart}`;
+}
+
+// Función para establecer todos los indicadores a un valor dado
+function setIndicators(vx, vy, vz, jw, pt, rll) {
+  vx_indicator.textContent = formatValue(vx);
+  vy_indicator.textContent = formatValue(vy);
+  vz_indicator.textContent = formatValue(vz);
+  jw_indicator.textContent = formatValue(jw);
+  pt_indicator.textContent = formatValue(pt);
+  rll_indicator.textContent = formatValue(rll);
+}
+
+// --- Lógica del botón ---
+bttnPWM.addEventListener("mousedown", () => {
+  // Cada 300 ms actualiza con valores aleatorios
+  const interval = setInterval(() => {
+    setIndicators(
+      randomValue() + 1,
+      randomValue() + 1,
+      randomValue() + 1,
+      randomValue()*4 + 90,
+      randomValue()*4 + 60,
+      randomValue()*4
+    );
+  }, 1000);
+
+  // Después de 5 segundos, detener y reiniciar a cero
+  setTimeout(() => {
+    clearInterval(interval);
+    setIndicators(0, 0, 0, 0, 0, 0);
+  }, 10000);
+});
+
+bttnPWM.addEventListener("touchstart", () => {
+  bttnPWM.dispatchEvent(new Event("mousedown"));
+});
+
+
+
+
+
+
+
 
 function updateDate() {
   const dateElement = document.getElementById("Date");

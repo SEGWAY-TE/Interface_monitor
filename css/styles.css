@@ -201,9 +201,9 @@ p{
     display: flex;
     margin: auto;
 }
-#counter{
+.counter_mpu{
     font-family: "Jura", 'Roboto';
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 2px;
     padding-right: 10px;
     border-right: solid 2px var(--color-borde-tra);
@@ -224,11 +224,12 @@ p{
 }
 
 .velocities{
-    width: 100%;
+    width: 90%;
     display: flex;
     gap: 10px;
     justify-content: space-between;
     align-items: center;
+    margin: auto;
 }
 
 .buttons{
